@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/go:1.26
+FROM mcr.microsoft.com/devcontainers/base:bookworm
 
 # Install Neovim dependencies and useful tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -22,7 +22,3 @@ RUN curl -fsSL "https://github.com/neovim/neovim/releases/download/${NVIM_VERSIO
 # Set Neovim as default editor
 ENV EDITOR=nvim
 ENV VISUAL=nvim
-
-# Install common Go tools (gopls, delve, etc. are already in the base image)
-# Install additional useful tools
-RUN go install github.com/jackc/pgx/v5@latest 2>/dev/null || true
