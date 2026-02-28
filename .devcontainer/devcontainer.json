@@ -1,0 +1,30 @@
+{
+    "name": "Go 1.26 + PostgreSQL 17",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "features": {},
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.env.linux": {
+                    "EDITOR": "nvim"
+                }
+            },
+            "extensions": [
+                "golang.go"
+            ]
+        }
+    },
+    "forwardPorts": [
+        5432
+    ],
+    "portsAttributes": {
+        "5432": {
+            "label": "PostgreSQL"
+        }
+    },
+    "postCreateCommand": "git clone https://github.com/nvim-lua/kickstart.nvim \"${HOME}/.config/nvim\" 2>/dev/null || true",
+    "remoteUser": "vscode"
+}
